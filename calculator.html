@@ -23,8 +23,8 @@
         let score = 0;
 
         function generateExample() {
-            num1 = Math.floor(Math.random() * 10) + 1;
-            num2 = Math.floor(Math.random() * 10) + 1;
+            num1 = Math.floor(Math.random() * 91) + 10; // Число від 10 до 100
+            num2 = Math.floor(Math.random() * 91) + 10; // Число від 10 до 100
             operator = Math.random() < 0.5 ? "+" : "-"; // Випадково вибирає + або -
 
             if (operator === "-") {
@@ -50,6 +50,13 @@
                 document.getElementById("message").innerText = "Неправильно! Спробуй ще раз.";
             }
         }
+
+        // Додаємо обробник події для натискання клавіші Enter
+        document.getElementById("answer").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                checkAnswer(); // Викликаємо функцію перевірки відповіді при натисканні Enter
+            }
+        });
 
         generateExample();
     </script>
